@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalhes da pergunta</title>
+    <title>Detalhes da enquete</title>
   </head>
   <body>
     <form action="{%url 'polls:vote' question.id%}" method="post">
@@ -17,14 +17,16 @@
         <input
           type="radio"
           name="choice"
-          id="choice{{ forloop.counter }}"
+          id="choice {{ forloop.counter }}"
           value="{{ choice.id }}"
         />
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label
+        <label for="choice {{ forloop.counter }}"
+          >{{ choice.choice_text }}</label
         ><br />
         {% endfor %}
       </fieldset>
       <input type="submit" value="votar" />
+      <a href="{% url 'polls:index' %}">voltar pra enquetes</a>
     </form>
   </body>
 </html>
