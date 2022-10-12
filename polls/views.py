@@ -25,7 +25,7 @@ class DetailView(generic.DetailView):
     template_name = "polls/detail.html"
 
     def get_queryset(self):
-        return Question.objects.filter(pub_date__lte=datetime.now())
+        return Question.objects.filter(pub_date__lte=timezone.now())
 
 
 class ResultsView(generic.DetailView):
